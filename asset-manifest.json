@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Course-JSON-Generator/static/css/main.a71e4f14.chunk.css",
-    "main.js": "/Course-JSON-Generator/static/js/main.ecd359c6.chunk.js",
-    "main.js.map": "/Course-JSON-Generator/static/js/main.ecd359c6.chunk.js.map",
+    "main.css": "/Course-JSON-Generator/static/css/main.67685708.chunk.css",
+    "main.js": "/Course-JSON-Generator/static/js/main.1009f8b5.chunk.js",
+    "main.js.map": "/Course-JSON-Generator/static/js/main.1009f8b5.chunk.js.map",
     "runtime-main.js": "/Course-JSON-Generator/static/js/runtime-main.fb154c1a.js",
     "runtime-main.js.map": "/Course-JSON-Generator/static/js/runtime-main.fb154c1a.js.map",
     "static/js/2.6008e501.chunk.js": "/Course-JSON-Generator/static/js/2.6008e501.chunk.js",
     "static/js/2.6008e501.chunk.js.map": "/Course-JSON-Generator/static/js/2.6008e501.chunk.js.map",
     "index.html": "/Course-JSON-Generator/index.html",
-    "static/css/main.a71e4f14.chunk.css.map": "/Course-JSON-Generator/static/css/main.a71e4f14.chunk.css.map",
+    "static/css/main.67685708.chunk.css.map": "/Course-JSON-Generator/static/css/main.67685708.chunk.css.map",
     "static/js/2.6008e501.chunk.js.LICENSE.txt": "/Course-JSON-Generator/static/js/2.6008e501.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fb154c1a.js",
     "static/js/2.6008e501.chunk.js",
-    "static/css/main.a71e4f14.chunk.css",
-    "static/js/main.ecd359c6.chunk.js"
+    "static/css/main.67685708.chunk.css",
+    "static/js/main.1009f8b5.chunk.js"
   ]
 }
