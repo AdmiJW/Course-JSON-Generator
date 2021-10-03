@@ -32,14 +32,17 @@ Here is a list of available commands (Maybe I will update later? Maybe not?):
 
 |Command|Description|
 |-|-|
-| `addcourse` | Adds a new course |
+| [`addcourse`](#addcourse) | Adds a new course |
+| [`addcourse_n`](#addcourse\_n) | Add multiple courses at once. `addcourse` on drug |
 
 To execute a command, press `ENTER` after you typed in the command into the input field
+
+<br>
 
 ---
 
 
-## `addcourse` Command
+## `addcourse`
 
 Add a course by `addcourse` command takes the following form:
 
@@ -127,3 +130,27 @@ addcourse;My Course;ABCD 123;1;
         T;0;8;10;
         T;2;14;16
 ```
+
+<br><br>
+
+---
+
+## `addcourse_n`
+
+Even `addcourse` is too slow? We heard you. Introducing `addcourse_n`:
+
+```
+addcourse_n;n_courses;<CoursePart>?+
+```
+
+|Token|Description|
+|-|-|
+|`n_courses`| Number of courses. The parser will expect to see `n_courses` of `<CoursePart>` next and throw error if didn't |
+
+Here's an example to add two courses:
+
+```
+addcourse_n;2;Course A;A123;0;Course B;B123;0
+```
+
+> With `addcourse_n`, you can draft your courses in a `.txt` file first, only to be added later!

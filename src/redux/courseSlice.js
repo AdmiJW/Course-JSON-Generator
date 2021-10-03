@@ -102,13 +102,29 @@ function parseCommand(fullCommand, stateProxy) {
     if (command === 'addcourse') {
         const courseID = stateProxy.meta.nextCourseID;
         const res = addCourseCommandHandler(tokens, courseID);
+
         if (res.error)
-            window.alert(res.error);
-        else {
-            stateProxy[courseID] = res.payload;
+            return window.alert(res.error);
+
+        stateProxy[courseID] = res.payload;
+        stateProxy.meta.nextCourseID++;
+        window.alert("Course successfully added.");
+    }
+    else if (command === 'addcourse_n') {
+        const n_courses = Number( tokens.shift() );
+        if (isNaN(n_courses) || n_courses < 0)
+            return window.alert('addcourse_n must be followed by an integer greater than 0!');
+
+        let courseID = stateProxy.meta.nextCourseID;
+        for (let i = courseID; i < courseID + n_courses; ++i) {
+            const res = addCourseCommandHandler(tokens, courseID+i);
+            if (res.error)
+                return window.alert(res.error);
+            
+            stateProxy[courseID + i] = res.payload;
             stateProxy.meta.nextCourseID++;
-            window.alert("Course successfully added.");
         }
+        window.alert("Courses successfully added.");
     }
     else
         window.alert(`Unidentified command ${command}`);
