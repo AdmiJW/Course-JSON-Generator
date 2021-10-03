@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Course-JSON-Generator/static/js/main.e45a146d.chunk.js",
-    "main.js.map": "/Course-JSON-Generator/static/js/main.e45a146d.chunk.js.map",
+    "main.js": "/Course-JSON-Generator/static/js/main.cff98853.chunk.js",
+    "main.js.map": "/Course-JSON-Generator/static/js/main.cff98853.chunk.js.map",
     "runtime-main.js": "/Course-JSON-Generator/static/js/runtime-main.fb154c1a.js",
     "runtime-main.js.map": "/Course-JSON-Generator/static/js/runtime-main.fb154c1a.js.map",
     "static/js/2.6008e501.chunk.js": "/Course-JSON-Generator/static/js/2.6008e501.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.fb154c1a.js",
     "static/js/2.6008e501.chunk.js",
-    "static/js/main.e45a146d.chunk.js"
+    "static/js/main.cff98853.chunk.js"
   ]
 }
