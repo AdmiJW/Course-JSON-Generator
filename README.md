@@ -6,7 +6,7 @@ Universiti Teknology Malaysia had many schools, each school is responsible for s
 
 Here's an example of such timetable:
 
-![Example of timetable released by School of Chemical & Energy Engineering](public/img/Capture.jpg)
+![Example of timetable released by School of Chemical & Energy Engineering](public/img/Capture.JPG)
 
 _(This is schedule list from School of Chemical & Energy Engineering - 2021/2022 Semester 1)._
 
