@@ -29,9 +29,14 @@ function Sidelist(props) {
             { courseListJSX }
         </ul>
         
-        <button className='sidelist--add' aria-label='Add blank course' title='Add blank course' onClick={()=> dispatch(courseActions.addCourse())}>
-            +
+        <button className='sidelist--btn sidelist--add' aria-label='Add blank course' title='Add blank course' 
+            onClick={()=> dispatch(courseActions.addCourse())}>
+                +
         </button>
+        <a className='sidelist--btn sidelist--github' href='https://github.com/AdmiJW/Course-JSON-Generator' target='_blank' rel='noreferrer noopener'
+            aria-label='Github Page' title='Github Page'>
+                <i className="fab fa-github-alt"></i>
+        </a>
     </div>
     );
 }

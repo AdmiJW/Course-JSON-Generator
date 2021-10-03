@@ -34,17 +34,22 @@
     overflow-y: auto;
 }
 
-.sidelist--add {
+.sidelist--btn {
     @include utils.eliminate-btn-style();
-    @include utils.btn-3d(#2ecc71, 4px, 1em, .02em);
     position: absolute;
     bottom: 20px;
-
-    align-self: center;
-
-    font-size: 3rem;
+    font-size: 2rem;
     color: #fff;
     font-weight: 900;
+}
+
+.sidelist--add {
+    @include utils.btn-3d(#2ecc71, 4px, 1em, .02em);
+}
+
+.sidelist--github {
+    @include utils.btn-3d(#2c3e50, 4px, 1em, .2em);
+    right: 10px;
 }
 
 .sidelist--item {
