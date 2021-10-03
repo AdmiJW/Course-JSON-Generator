@@ -42,3 +42,48 @@ function removeMetaFromObjectInplace(object) {
     }
     return object;
 }
+
+
+
+
+export const generateEmptyCourse = (id)=> {
+    return {
+        id,
+        meta: {
+            nextSectionID: 0,
+        },
+        name: "Untitled Course",
+        code: "",
+        sections: {}
+    };
+}
+
+export const generateEmptySection = (id)=> {
+    return {
+        id,
+        meta: {
+            nextTimeID: 0
+        },
+        section: "",
+        lecturer: "",
+        times: {}
+    }
+}
+
+export const generateEmptyTime = (id)=> {
+    return {
+        id,
+        dayOfWeek: 0,
+        beginTime: 8,
+        endTime: 9
+    }
+}
+
+
+export function downloadJSONFromObject(object, filename) {
+    const dataString = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(object, null, 4));
+    const anchorElem = document.createElement('a');
+    anchorElem.setAttribute('href', dataString);
+    anchorElem.setAttribute('download', filename);
+    anchorElem.click();
+}

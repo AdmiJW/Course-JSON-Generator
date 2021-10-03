@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { obtainStateWithoutMeta } from "../logic/utils";
+import { 
+    obtainStateWithoutMeta, generateEmptyCourse, generateEmptySection, generateEmptyTime, 
+    downloadJSONFromObject 
+} from "../logic/utils";
+import { addCourseCommandHandler } from "../logic/addcourseCommnd";
 
 
 // Slice Structure:
@@ -83,49 +87,34 @@ const APP_VERSION = '1.0.0';    // ! Used to keep track of saved file from outda
 
 
 //=======================================
-// Utilities
+// Commands
 //=======================================
-const generateEmptyCourse = (id)=> {
-    return {
-        id,
-        meta: {
-            nextSectionID: 0,
-        },
-        name: "Untitled Course",
-        code: "",
-        sections: {}
-    };
-}
+// Command handlers that are executed correctly returns an object with property `ok` - { ok: true ...}
+// Command handlers that are invalid will return object with property error - { error: 'Invalid command' }
+// Command handlers can return some result by including as payload - { ok: true, payload: {...} }
 
-const generateEmptySection = (id)=> {
-    return {
-        id,
-        meta: {
-            nextTimeID: 0
-        },
-        section: "",
-        lecturer: "",
-        times: {}
+// stateProxy is the proxy state given by redux toolkit from immer library to allow for mutations of state
+function parseCommand(fullCommand, stateProxy) {
+    if (fullCommand.length === 0) return {};
+    const tokens = fullCommand.split(';');
+
+    const command = tokens.shift();
+    if (command === 'addcourse') {
+        const courseID = stateProxy.meta.nextCourseID;
+        const res = addCourseCommandHandler(tokens, courseID);
+        if (res.error)
+            window.alert(res.error);
+        else {
+            stateProxy[courseID] = res.payload;
+            stateProxy.meta.nextCourseID++;
+            window.alert("Course successfully added.");
+        }
     }
-}
-
-const generateEmptyTime = (id)=> {
-    return {
-        id,
-        dayOfWeek: 0,
-        beginTime: 8,
-        endTime: 9
-    }
+    else
+        window.alert(`Unidentified command ${command}`);
 }
 
 
-function downloadJSONFromObject(object, filename) {
-    const dataString = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(object, null, 4));
-    const anchorElem = document.createElement('a');
-    anchorElem.setAttribute('href', dataString);
-    anchorElem.setAttribute('download', filename);
-    anchorElem.click();
-}
 
 //=======================================
 // Thunk
@@ -289,6 +278,13 @@ const courseSlice = createSlice({
             const stateCopy = obtainStateWithoutMeta(state);
             downloadJSONFromObject(stateCopy, 'courses.json');
         },
+
+    
+        // Commands
+        executeCommand: (state, action)=> {
+            parseCommand(action.payload, state);
+        },
+
     },
 
     // Extra reducers from Async thunk

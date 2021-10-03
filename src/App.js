@@ -9,6 +9,7 @@ function App() {
 
     const dispatch = useDispatch();
     const [isMobileSideListOpen, setIsMobileSideListOpen] = useState(false);
+    const [commandField, setCommandField] = useState('');
 
 
     return (
@@ -19,7 +20,14 @@ function App() {
     </main>
 
 
-    <div className='controls--btngrp'>
+    <div className='controls'>
+        <input type='text' className='controls--input controls--command' aria-label='Field to type in command' title='Field to type in command'
+            placeholder='Enter command here...' value={commandField} 
+            onChange={(e)=> setCommandField(e.target.value) } 
+            onKeyDown={(e)=> {
+                if (e.key === 'Enter') dispatch(courseActions.executeCommand(commandField));
+            }} />
+
         <button type='button' className='controls--btn controls--save' aria-label='Save into Local Storage' title='Save into Local Storage'
             onClick={()=> dispatch(courseActions.saveDataIntoLocalStorage())} >
                 <i className="far fa-save"></i>

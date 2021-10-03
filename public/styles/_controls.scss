@@ -1,10 +1,20 @@
 @use './utils';
 
-.controls--btngrp {
+.controls {
     position: fixed;
     bottom: 10px; right: 10px;
     @include utils.flex();
     gap: 10px;
+}
+
+.controls--command {
+    @include utils.rounded-input();
+    display: none;
+    min-width: 300px;
+
+    @media screen and (min-width: utils.$breakpoint) {
+        display: block;
+    }
 }
 
 .controls--btn {
