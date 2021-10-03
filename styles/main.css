@@ -329,7 +329,7 @@
   transform: translateY(4px);
 }
 
-.controls--btngrp {
+.controls {
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -338,6 +338,19 @@
   justify-content: flex-start;
   align-items: stretch;
   gap: 10px;
+}
+
+.controls--command {
+  border: solid 1px #9c9c9c;
+  border-radius: 1rem;
+  padding: 0.1em 0.5em;
+  display: none;
+  min-width: 300px;
+}
+@media screen and (min-width: 576px) {
+  .controls--command {
+    display: block;
+  }
 }
 
 .controls--btn {
