@@ -37,6 +37,30 @@ Here is a list of available commands (Maybe I will update later? Maybe not?):
 
 To execute a command, press `ENTER` after you typed in the command into the input field
 
+__For convenience, the command parser will automatically remove leading and trailing whitespaces in each token of the command (`\n` and \t`). This allows direct copy paste from beautified, indented commands, like:__
+
+```
+addcourse_n;5;
+	Static;SETK 1213;5;
+		S;01;;2;
+			T;0;8;10;
+			T;3;8;10;
+		S;02;;2;
+			T;0;8;10;
+			T;3;8;10;
+		S;03;;2;
+			T;0;8;10;
+			T;3;8;10;
+		S;04;;2;
+			T;0;14;16;
+			T;4;11;13;
+		S;05;;2;
+			T;0;14;16;
+			T;4;11;13;
+```
+
+where tokens like `\t\tMy Course    \n` will be trimmed to `My Course` only.
+
 <br>
 
 ---
@@ -111,15 +135,15 @@ T;dayOfWeek;beginTime;endTime
 |Token|Description|
 |-|-|
 |`T`| Used to indicate a beginning of `<TimePart>` |
-|`dayOfWeek`| Integer [0-6]. 0 is Sunday, 1 is Monday etc |
-|`beginTime`| Integer [0-23]. 0 is 12AM, 1 is 1AM etc |
-|`endTime`| Integer [0-23]. Same as above. Should be greater than `beginTime`|
+|`dayOfWeek`| Integer [0-6]. 0 is Sunday, 1 is Monday etc. You can also use shortforms __(CASE SENSITIVE)__ - `SUN`, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` |
+|`beginTime`| Integer [0-23]. 0 is 12AM, 1 is 1AM etc. You may also use 12 hour format __(CASE SENSITIVE)__ - `12AM`, `1AM`...`10PM`, `11PM` |
+|`endTime`| Integer [0-23]. Same as above. Should be greater than `beginTime`. 12 hour format supported  __(CASE SENSITIVE)__|
 
 
 For example, the following command adds a course with 1 section, with 2 classes: Sunday 8AM - 10AM, Tuesday 2PM - 4PM
 
 ```
-addcourse;My Course;ABCD 123;1;S;01;Dr Ali;2;T;0;8;10;T;2;14;16
+addcourse;My Course;ABCD 123;1;S;01;Dr Ali;2;T;0;8;10;T;2;2PM;4PM
 ```
 
 Prettified:
@@ -128,7 +152,7 @@ Prettified:
 addcourse;My Course;ABCD 123;1;
     S;01;Dr Ali;2;
         T;0;8;10;
-        T;2;14;16
+        T;TUE;2PM;4PM
 ```
 
 <br><br>

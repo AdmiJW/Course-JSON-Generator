@@ -96,7 +96,10 @@ const APP_VERSION = '1.0.0';    // ! Used to keep track of saved file from outda
 // stateProxy is the proxy state given by redux toolkit from immer library to allow for mutations of state
 function parseCommand(fullCommand, stateProxy) {
     if (fullCommand.length === 0) return {};
-    const tokens = fullCommand.split(';');
+
+    // Split by delimiter semicolon ;, then remove leading and trailing whitespaces
+    // This effectively removes \t and \n and unwanted spaces in the command.
+    const tokens = fullCommand.split(';').map((e)=> e.trim());
 
     const command = tokens.shift();
     if (command === 'addcourse') {
