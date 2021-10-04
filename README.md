@@ -136,8 +136,15 @@ T;dayOfWeek;beginTime;endTime
 |-|-|
 |`T`| Used to indicate a beginning of `<TimePart>` |
 |`dayOfWeek`| Integer [0-6]. 0 is Sunday, 1 is Monday etc. You can also use shortforms __(CASE SENSITIVE)__ - `SUN`, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` |
-|`beginTime`| Integer [0-23]. 0 is 12AM, 1 is 1AM etc. You may also use 12 hour format __(CASE SENSITIVE)__ - `12AM`, `1AM`...`10PM`, `11PM` |
-|`endTime`| Integer [0-23]. Same as above. Should be greater than `beginTime`. 12 hour format supported  __(CASE SENSITIVE)__|
+|`beginTime`| Beginning time of a class. See below |
+|`endTime`| Ending time of a class. See below |
+
+### Regarding `beginTime` and `endTime`:
+
+There are multiple ways you can represent a time:
+* 24 hour format: Integer [0-23]. 0 is 12AM, 1 is 1AM etc.
+* 12 hour format: __(CASE SENSITIVE)__. `12AM`, `1AM`... `10PM`, `11PM`.
+* Timecode format (UTM specific) - Some schools like to represent time in timecode - `02` is actually 8AM, `03` is 9AM. __A prefix of `0` is required__ - `010` is 4PM, while `10` will be interpreted as 10AM.
 
 
 For example, the following command adds a course with 1 section, with 2 classes: Sunday 8AM - 10AM, Tuesday 2PM - 4PM
