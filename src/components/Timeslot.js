@@ -48,7 +48,8 @@ function Timeslot(props) {
                 <option value='15' disabled={ beginTime > 15 }>(09) 3.00 PM</option>
                 <option value='16' disabled={ beginTime > 16 }>(10) 4.00 PM</option>
                 <option value='17' disabled={ beginTime > 17 }>(11) 5.00 PM</option>
-                <option value='18' disabled={ beginTime > 18 }>(11) 6.00 PM</option>
+                <option value='18' disabled={ beginTime > 18 }>(12) 6.00 PM</option>
+                <option value='19' disabled={ beginTime > 18 }>(13) 7.00 PM</option>
         </select>
 
         <button type='button' className='time--delete'
